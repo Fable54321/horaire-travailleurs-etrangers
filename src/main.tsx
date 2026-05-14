@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './100--App/App.tsx'
 import Lists from './110--Lists/Lists.tsx'
+import { WorkerScheduleProvider } from './Contexts/WorkerScheduleContext.tsx'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <WorkerScheduleProvider>
+      <RouterProvider router={router} />
+    </WorkerScheduleProvider>
   </StrictMode>,
 )

@@ -1,9 +1,14 @@
-
+import { useWorkerSchedule } from '../Contexts/WorkerScheduleContext'
+import { formatDate } from '../Utils/formatDate'
 
 const Lists = () => {
+  const { selectedDate } = useWorkerSchedule()
+
   return (
     <article className="flex flex-col items-center mt-5">
         <section className="flex flex-col items-center gap-5">
+
+          <h2>{formatDate(selectedDate)}</h2>
       <h2 className="font-bold font-tertiary text-[1.2em]">Liste des camionneurs disponibles:</h2>
       <ul className="flex flex-col"></ul>
       </section>
