@@ -8,6 +8,7 @@ import {
 } from "react";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+const APP_SLUG = "schedule";
 
 type AppAccess = {
   slug: string;
@@ -50,8 +51,6 @@ export const PersistentAuthProvider = ({
     window.location.replace("https://vegibec-portail.com/");
   };
 
-
-
  const createPersistentSession = useCallback(async () => {
   try {
     setError(null);
@@ -60,8 +59,13 @@ export const PersistentAuthProvider = ({
       `${API_BASE_URL}/alternative-auth/create-toolbox-device-session`,
       {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ appSlug: APP_SLUG }),
         credentials: "include",
       },
+
     );
 
     if (!res.ok) {
