@@ -130,7 +130,7 @@ const Lists = () => {
         <button className="text-secondary hover:cursor-pointer" onClick={handleSetPreviousDay}>
           <ChevronLeftIcon size={30} strokeWidth={3} />
         </button>
-        <h2 className="font-tertiary text-[2em] font-bold">{formatDate(selectedDate)}</h2>
+        <h2 className="font-tertiary text-[2em] font-bold text-center">{formatDate(selectedDate)}</h2>
         <button className="text-secondary hover:cursor-pointer" onClick={handleSetNextDay}>
           <ChevronRightIcon size={30} strokeWidth={3} />
         </button>
