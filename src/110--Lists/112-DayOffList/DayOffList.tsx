@@ -23,13 +23,13 @@ const filteredWorkersSchedule = useMemo(() => {
             <CalendarX className="text-white" />
         </div>
       </div>
-      <ul className="flex flex-col items-start gap-2">
+      <ul className="flex flex-col items-start gap-3">
         {filteredWorkersSchedule.map(worker => (
            <li key={worker.id} className="flex items-center gap-2">
             <div className="bg-secondary p-2 rounded-md">
             <UserRound className="text-white " size={17} />
             </div>
-           <p className="text-[1.1em] font-bold">{worker.user_surname && worker.user_name &&  formatName(worker.user_surname) + ' ' + formatName(worker.user_name)} </p>
+           <p className="text-[1.25em] font-bold">{worker.user_surname && worker.user_name &&  formatName(worker.user_surname) + ' ' + formatName(worker.user_name)} </p>
           </li>
         ))}
       </ul>
