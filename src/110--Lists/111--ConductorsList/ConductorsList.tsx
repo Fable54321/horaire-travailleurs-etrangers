@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useMemo } from "react"
 import { useWorkerSchedule } from "../../Contexts/WorkerScheduleContext"
 
 
@@ -10,9 +10,25 @@ useEffect(() => {
     console.log(selectedDate)
 },[selectedDate])
 
+const filteredWorkersSchedule = useMemo(() => {
+  return workersSchedule.filter(worker => worker.is_driver === true)
+
+}, [workersSchedule])
+
+useEffect(() => {
+  console.log(filteredWorkersSchedule)
+},[filteredWorkersSchedule])
+
   return (
     <section>
-      <p>{workersSchedule[0].user_surname} {workersSchedule[0].user_name}</p>
+      <h2>Lista de conductores disponibles</h2>
+      <ul>
+        {filteredWorkersSchedule.map(worker => (
+          <li key={worker.id}>
+           {worker.user_surname} {worker.user_name} 
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }
