@@ -1,5 +1,6 @@
-import { CalendarX } from "lucide-react"
+import { CalendarX, UserRound } from "lucide-react"
 import { useWorkerSchedule } from "../../Contexts/WorkerScheduleContext"
+import {formatName} from "../../Utils/formatName"
 import { useMemo } from "react"
 
 
@@ -22,10 +23,13 @@ const filteredWorkersSchedule = useMemo(() => {
             <CalendarX className="text-white" />
         </div>
       </div>
-      <ul>
+      <ul className="flex flex-col items-start gap-2">
         {filteredWorkersSchedule.map(worker => (
-          <li key={worker.id} className="flex items-center gap-2">
-            <span className="text-[1.2em]">{worker.user_surname + ' ' + worker.user_name}</span>
+           <li key={worker.id} className="flex items-center gap-2">
+            <div className="bg-secondary p-2 rounded-md">
+            <UserRound className="text-white " size={17} />
+            </div>
+           {worker.user_surname && worker.user_name &&  formatName(worker.user_surname) + ' ' + formatName(worker.user_name)} 
           </li>
         ))}
       </ul>
