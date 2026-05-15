@@ -27,6 +27,7 @@ export type WorkerScheduleDetails = {
 }
 
 const getWorkersSchedule = () => fetchWithAuth<WorkerScheduleDetails[]>('/schedule')
+const getDateCode = (date: Date) => date.toString().slice(0, 3).toLowerCase();
 
 type WorkerScheduleContextValue = {
   selectedDate: Date
@@ -35,6 +36,7 @@ type WorkerScheduleContextValue = {
   loadingWorkersSchedule: boolean
   workersScheduleError: string | null
   refetchWorkersSchedule: () => Promise<void>
+  dateCode: string
 }
 
 const WorkerScheduleContext = createContext<WorkerScheduleContextValue | null>(null)
@@ -45,6 +47,7 @@ type WorkerScheduleProviderProps = {
 
 export const WorkerScheduleProvider = ({ children }: WorkerScheduleProviderProps) => {
   const [selectedDate, setSelectedDate] = useState(() => new Date())
+  const dateCode = getDateCode(selectedDate)
   const [workersSchedule, setWorkersSchedule] = useState<WorkerScheduleDetails[]>([])
   const [loadingWorkersSchedule, setLoadingWorkersSchedule] = useState(true)
   const [workersScheduleError, setWorkersScheduleError] = useState<string | null>(null)
@@ -113,6 +116,7 @@ export const WorkerScheduleProvider = ({ children }: WorkerScheduleProviderProps
         loadingWorkersSchedule,
         workersScheduleError,
         refetchWorkersSchedule,
+        dateCode,
       }}
     >
       {children}

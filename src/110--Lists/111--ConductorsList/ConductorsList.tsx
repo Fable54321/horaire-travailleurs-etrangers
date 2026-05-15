@@ -1,24 +1,22 @@
-import { useEffect, useMemo } from "react"
+import { useMemo } from "react"
 import { useWorkerSchedule } from "../../Contexts/WorkerScheduleContext"
 import wheel from "../../assets/images/wheel.png"
 import { UserRound } from "lucide-react"
 
 const ConductorsList = () => {
 
-const {selectedDate, workersSchedule} = useWorkerSchedule()
+const { workersSchedule, dateCode} = useWorkerSchedule()
 
-useEffect(() => {
-    console.log(selectedDate)
-},[selectedDate])
+
+
 
 const filteredWorkersSchedule = useMemo(() => {
   return workersSchedule.filter(worker => worker.is_driver === true)
+         .filter(worker => worker.day_off.startsWith(dateCode) === false)
 
-}, [workersSchedule])
+}, [workersSchedule, dateCode])
 
-useEffect(() => {
-  console.log(filteredWorkersSchedule)
-},[filteredWorkersSchedule])
+
 
   return (
     <section className="mt-3 flex flex-col items-center gap-4 bg-white p-4 rounded-xl shadow-2xl">

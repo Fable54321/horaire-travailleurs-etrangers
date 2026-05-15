@@ -3,6 +3,7 @@ import { useWorkerSchedule } from '../Contexts/WorkerScheduleContext'
 import { formatDate } from '../Utils/formatDate'
 import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import ConductorsList from './111--ConductorsList/ConductorsList'
+import DayOffList from './112-DayOffList/DayOffList'
 
 const dateInputFormatter = new Intl.DateTimeFormat('en-CA', {
   year: 'numeric',
@@ -62,7 +63,7 @@ const getCalendarDays = (monthDate: Date) => {
 }
 
 const Lists = () => {
-  const { selectedDate, setSelectedDate } = useWorkerSchedule()
+  const { selectedDate, setSelectedDate, workersSchedule } = useWorkerSchedule()
   const [dateInputValue, setDateInputValue] = useState<string | null>(null)
   const [isCalendarOpen, setIsCalendarOpen] = useState(false)
   const [calendarMonth, setCalendarMonth] = useState(() => selectedDate)
@@ -71,7 +72,7 @@ const Lists = () => {
   const calendarDays = getCalendarDays(calendarMonth)
 
 
-  const { workersSchedule } = useWorkerSchedule();
+  
 
 
   useEffect(() => {
@@ -132,6 +133,8 @@ const Lists = () => {
     setCalendarMonth(selectedDate)
     setIsCalendarOpen(true)
   }
+
+
 
   return (
     <article className="flex flex-col items-center mt-5 text-[0.9rem] md:text-[1rem] lg:text-[1.1rem]">
@@ -246,6 +249,8 @@ const Lists = () => {
       </div>
 
       <ConductorsList />
+
+      <DayOffList />
     </article>
   )
 }
