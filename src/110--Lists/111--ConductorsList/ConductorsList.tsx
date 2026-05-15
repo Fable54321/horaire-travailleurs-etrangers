@@ -20,17 +20,17 @@ const filteredWorkersSchedule = useMemo(() => {
 
 
   return (
-    <section className="mt-3 flex flex-col items-center gap-4 bg-white p-4 rounded-xl shadow-2xl">
-        <div className="bg-[#f4f6ee]  text-secondary font-tertiary px-2 rounded-lg flex items-center gap-2 shadow-lg">
+    <section className="mt-3 flex flex-col items-center gap-4 bg-white py-4 rounded-xl shadow-2xl">
+        <div className="w-[95%] bg-[#f4f6ee]  text-secondary font-tertiary px-2 rounded-lg flex items-center gap-2 shadow-lg">
       <h2 className="text-[1.7em] text-center">Lista de conductores disponibles</h2>
       <div className="bg-secondary p-2 rounded-xl">
       <img src={wheel} alt="wheel" className="w-10" />
       </div>
       
       </div>
-      <ul className="flex flex-col items-start w-full gap-3">
+      <ul className="flex flex-col items-start w-full gap-3 px-1">
         {filteredWorkersSchedule.map(worker => (
-          <li key={worker.id} className="flex items-center gap-2">
+          <li key={worker.id} className="flex items-center gap-2 border-b border-secondary/50 pb-2 w-full">
             <div className="bg-secondary p-2 rounded-md">
             <UserRound className="text-white "  size={17} />
             </div>
