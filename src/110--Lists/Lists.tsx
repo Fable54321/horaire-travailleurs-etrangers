@@ -4,6 +4,7 @@ import { formatDate } from '../Utils/formatDate'
 import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import ConductorsList from './111--ConductorsList/ConductorsList'
 import DayOffList from './112-DayOffList/DayOffList'
+import CheckBoxes from './CheckBoxes/CheckBoxes'
 
 const dateInputFormatter = new Intl.DateTimeFormat('en-CA', {
   year: 'numeric',
@@ -247,6 +248,8 @@ const Lists = () => {
           </div>
         )}
       </div>
+
+      <CheckBoxes />
 
       <ConductorsList />
 

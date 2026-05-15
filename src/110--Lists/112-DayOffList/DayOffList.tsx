@@ -16,7 +16,7 @@ const filteredWorkersSchedule = useMemo(() => {
 
 
   return (
-    <section className="mt-3 flex flex-col items-center gap-4 bg-white py-4 rounded-xl shadow-2xl">
+    <section className="mt-3 flex flex-col items-center gap-4 bg-white py-4 rounded-xl shadow-2xl w-[min(100%,500px)]">
       <div className="bg-[#f4f6ee] w-[95%]  text-secondary font-tertiary px-2 rounded-lg flex items-center gap-2 shadow-lg">
         <h2 className="text-[1.7em] text-center" >Lista de trabajadores en baja</h2>
         <div className="bg-secondary p-2 rounded-lg">

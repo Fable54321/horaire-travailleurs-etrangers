@@ -20,11 +20,11 @@ const filteredWorkersSchedule = useMemo(() => {
 
 
   return (
-    <section className="mt-3 flex flex-col items-center gap-4 bg-white py-4 rounded-xl shadow-2xl">
+    <section className=" w-[min(100%,500px)] mt-3 flex flex-col items-center gap-4 bg-white py-4 rounded-xl shadow-2xl">
         <div className="w-[95%] bg-[#f4f6ee]  text-secondary font-tertiary px-2 rounded-lg flex items-center gap-2 shadow-lg">
       <h2 className="text-[1.7em] text-center">Lista de conductores disponibles</h2>
       <div className="bg-secondary p-2 rounded-xl">
-      <img src={wheel} alt="wheel" className="w-10" />
+      <img src={wheel} alt="wheel" className="w-8" />
       </div>
       
       </div>
