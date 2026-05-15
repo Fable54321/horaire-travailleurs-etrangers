@@ -65,7 +65,7 @@ const getCalendarDays = (monthDate: Date) => {
 const Lists = () => {
   const { selectedDate, setSelectedDate, workersSchedule } = useWorkerSchedule()
   const [dateInputValue, setDateInputValue] = useState<string | null>(null)
-  const [isCalendarOpen, setIsCalendarOpen] = useState(true)
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false)
   const [calendarMonth, setCalendarMonth] = useState(() => selectedDate)
   const selectedDateInputValue = getDateInputValue(selectedDate)
   const displayedDateInputValue = dateInputValue ?? selectedDateInputValue
@@ -199,7 +199,7 @@ const Lists = () => {
         </label>
 
         {isCalendarOpen && (
-          <div className="absolute left-1/2 z-10 mt-2 w-[min(98%,400px)] -translate-x-1/2 rounded-md border border-secondary/30 bg-white p-3 font-secondary text-black shadow-lg">
+          <div className="absolute left-1/2 z-10 mt-2 w-[min(102%,400px)] -translate-x-1/2 rounded-md border border-secondary/30 bg-white p-1 font-secondary text-black shadow-lg">
             <div className="mb-3 flex items-center justify-between text-secondary">
               <button
                 className="rounded-sm p-1 hover:cursor-pointer hover:bg-tertiary"
@@ -226,12 +226,12 @@ const Lists = () => {
               ))}
             </div>
 
-            <div className="mt-1 grid grid-cols-7 gap-1">
+            <div className="mt-1 grid grid-cols-7 gap-y-4 gap-x-3">
               {calendarDays.map((date, index) =>
                 date ? (
                   <button
                     key={getDateInputValue(date)}
-                    className={`h-9 rounded-sm text-[1.4em] border border-gray-300 hover:cursor-pointer hover:bg-tertiary ${
+                    className={`h-9 rounded-sm text-[1.5em]  hover:cursor-pointer hover:bg-tertiary ${
                       isSameDate(date, selectedDate) ? 'bg-secondary font-bold text-white hover:bg-secondary' : ''
                     }`}
                     type="button"
