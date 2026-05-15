@@ -137,7 +137,7 @@ const Lists = () => {
 
 
   return (
-    <article className="flex flex-col items-center mt-5 text-[0.9rem] md:text-[1rem] lg:text-[1.1rem]">
+    <article className="flex flex-col items-center mt-5 ">
       <div className="flex items-center gap-3">
         <button className="text-secondary hover:cursor-pointer" onClick={handleSetPreviousDay}>
           <ChevronLeftIcon size={30} strokeWidth={3} />

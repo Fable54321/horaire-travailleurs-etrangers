@@ -12,6 +12,3 @@ export const formatName = (name: string) => {
 
 }
 
-const name = "TIMOTHEO BENSONNETTE"
-
-formatName(name);
