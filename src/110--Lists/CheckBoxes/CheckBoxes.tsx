@@ -16,7 +16,7 @@ const CheckBoxes = () => {
 
 
   return (
-    <section className="flex flex-col items-center bg-white mt-1 shadow-2xl rounded-xl px-1">
+    <section className="flex flex-col items-center bg-white mt-2 shadow-2xl rounded-xl px-1">
         <h2 className="text-[1.7em] text-center my-2">categoría de trabajadores:</h2>
         <ul className="grid grid-cols-2 items-start gap-2">
             {categories.map((category, index) => (
