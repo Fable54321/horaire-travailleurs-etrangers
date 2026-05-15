@@ -11,7 +11,13 @@ import {
 import { fetchWithAuth } from '../Utils/fetchWithAuth'
 
 export type WorkerScheduleDetails = {
+  day_off: string
+  has_license: boolean
   id: number
+  is_driver: boolean
+  job: string | null
+  job_spanish_label: string | null
+  personal_picture_key: string | null
   user_id: number | null
   user_name: string | null
   user_surname: string | null

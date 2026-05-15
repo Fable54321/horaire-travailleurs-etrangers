@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useWorkerSchedule } from '../Contexts/WorkerScheduleContext'
 import { formatDate } from '../Utils/formatDate'
 import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
+import ConductorsList from './111--ConductorsList/ConductorsList'
 
 const dateInputFormatter = new Intl.DateTimeFormat('en-CA', {
   year: 'numeric',
@@ -243,6 +244,8 @@ const Lists = () => {
           </div>
         )}
       </div>
+
+      <ConductorsList />
     </article>
   )
 }

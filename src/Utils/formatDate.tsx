@@ -3,16 +3,16 @@ export const formatDate = (date: Date) => {
 const dayIndex = date.getDay();
     
 const dayMap: Record<number, string> = {
-    0: 'Dimanche',
-    1: 'Lundi',
-    2: 'Mardi',
-    3: 'Mercredi',
-    4: 'Jeudi',
-    5: 'Vendredi',
-    6: 'Samedi',
+    0: 'Domingo',
+    1: 'Lunes',
+    2: 'Martes',
+    3: 'Miércoles',
+    4: 'Jueves',
+    5: 'Viernes',
+    6: 'Sábado',
 };
 
-    return dayMap[dayIndex] + ' ' + 'le' + ' ' + date.toLocaleDateString('fr-CA', {
+    return dayMap[dayIndex] + ' ' + date.toLocaleDateString('es-MX', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
