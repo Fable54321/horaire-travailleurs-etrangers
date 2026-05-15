@@ -137,7 +137,7 @@ const Lists = () => {
 
 
   return (
-    <article className="flex flex-col items-center mt-5 ">
+    <article className="flex flex-col items-center mt-5 w-full ">
       <div className="flex items-center gap-3">
         <button className="text-secondary hover:cursor-pointer" onClick={handleSetPreviousDay}>
           <ChevronLeftIcon size={30} strokeWidth={3} />
@@ -149,7 +149,7 @@ const Lists = () => {
       </div>
 
       <div
-        className="relative mt-3"
+        className="relative mt-3 w-full flex flex-col items-center"
         onBlur={(event) => {
           if (!event.currentTarget.contains(event.relatedTarget)) {
             handleSubmitDate()
@@ -199,7 +199,7 @@ const Lists = () => {
         </label>
 
         {isCalendarOpen && (
-          <div className="absolute left-1/2 z-10 mt-2 w-72 -translate-x-1/2 rounded-md border border-secondary/30 bg-white p-3 font-secondary text-black shadow-lg">
+          <div className="absolute left-1/2 z-10 mt-2 w-[min(98%,400px)] -translate-x-1/2 rounded-md border border-secondary/30 bg-white p-3 font-secondary text-black shadow-lg">
             <div className="mb-3 flex items-center justify-between text-secondary">
               <button
                 className="rounded-sm p-1 hover:cursor-pointer hover:bg-tertiary"
