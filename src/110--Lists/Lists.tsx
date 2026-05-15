@@ -65,7 +65,7 @@ const getCalendarDays = (monthDate: Date) => {
 const Lists = () => {
   const { selectedDate, setSelectedDate, workersSchedule } = useWorkerSchedule()
   const [dateInputValue, setDateInputValue] = useState<string | null>(null)
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false)
+  const [isCalendarOpen, setIsCalendarOpen] = useState(true)
   const [calendarMonth, setCalendarMonth] = useState(() => selectedDate)
   const selectedDateInputValue = getDateInputValue(selectedDate)
   const displayedDateInputValue = dateInputValue ?? selectedDateInputValue
@@ -231,7 +231,7 @@ const Lists = () => {
                 date ? (
                   <button
                     key={getDateInputValue(date)}
-                    className={`h-8 rounded-sm text-sm hover:cursor-pointer hover:bg-tertiary ${
+                    className={`h-9 rounded-sm text-[1.4em] border border-gray-300 hover:cursor-pointer hover:bg-tertiary ${
                       isSameDate(date, selectedDate) ? 'bg-secondary font-bold text-white hover:bg-secondary' : ''
                     }`}
                     type="button"
@@ -240,7 +240,7 @@ const Lists = () => {
                     {date.getDate()}
                   </button>
                 ) : (
-                  <span key={`empty-${index}`} className="h-8" aria-hidden="true" />
+                  <span key={`empty-${index}`} className="h-9" aria-hidden="true" />
                 ),
               )}
             </div>
