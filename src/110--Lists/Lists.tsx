@@ -72,7 +72,17 @@ const Lists = () => {
   const displayedDateInputValue = dateInputValue ?? selectedDateInputValue
   const calendarDays = getCalendarDays(calendarMonth)
 
-
+  // const [categories, setCategories] = useState<Record<string, boolean>>({
+  //      "tiene licencia": false,
+  //       "camionero": false,
+  //       "conductor de tractor": false,
+  //       "conductor de carretilla elevadora": false,
+  //       "trabajador de riego": false,
+  //       "jefe de equipo": false,
+  //       "trabajador de invernaderos": false,
+  //       "otra": false,
+  //       "seleccionar todo": false
+  // })
   
 
 
