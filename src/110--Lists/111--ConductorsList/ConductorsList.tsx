@@ -2,6 +2,7 @@ import { useMemo } from "react"
 import { useWorkerSchedule } from "../../Contexts/WorkerScheduleContext"
 import wheel from "../../assets/images/wheel.png"
 import { UserRound } from "lucide-react"
+import { formatName } from "../../Utils/formatName"
 
 const ConductorsList = () => {
 
@@ -33,7 +34,7 @@ const filteredWorkersSchedule = useMemo(() => {
             <div className="bg-secondary p-2 rounded-md">
             <UserRound className="text-white " />
             </div>
-           {worker.user_surname} {worker.user_name} 
+           {worker.user_surname && worker.user_name &&   formatName(worker.user_surname) + ' ' + formatName(worker.user_name)} 
           </li>
         ))}
       </ul>

@@ -2,15 +2,16 @@ export const formatName = (name: string) => {
 
 
 
-     name
+   return name
         .split(' ')
+        .map((word) => word.split('').map((letter) => letter.toLowerCase()).join(''))
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
+   
 
-console.log(name);
 
 }
 
-const name = 'juan carlos';
+const name = "TIMOTHEO BENSONNETTE"
 
 formatName(name);
