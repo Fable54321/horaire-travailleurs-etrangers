@@ -20,8 +20,10 @@ useEffect(() => {
 },[filteredWorkersSchedule])
 
   return (
-    <section>
-      <h2>Lista de conductores disponibles</h2>
+    <section className="mt-3 flex flex-col items-center bg-white p-4 rounded-xl shadow-2xl">
+        <div className="bg-[#f4f6ee] text-secondary font-tertiary px-1">
+      <h2 className="text-[1.7em] ">Lista de conductores disponibles</h2>
+      </div>
       <ul>
         {filteredWorkersSchedule.map(worker => (
           <li key={worker.id}>
