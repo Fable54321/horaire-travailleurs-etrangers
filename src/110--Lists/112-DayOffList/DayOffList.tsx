@@ -29,7 +29,7 @@ const filteredWorkersSchedule = useMemo(() => {
             <div className="bg-secondary p-2 rounded-md">
             <UserRound className="text-white " size={17} />
             </div>
-           {worker.user_surname && worker.user_name &&  formatName(worker.user_surname) + ' ' + formatName(worker.user_name)} 
+           <p className="text-[1.1em] font-bold">{worker.user_surname && worker.user_name &&  formatName(worker.user_surname) + ' ' + formatName(worker.user_name)} </p>
           </li>
         ))}
       </ul>
