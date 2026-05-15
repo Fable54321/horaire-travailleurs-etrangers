@@ -10,7 +10,9 @@ const CheckBoxes = () => {
         "conductor de carretilla elevadora",
         "trabajador de riego",
         "jefe de equipo",
-        "trabajador de invernaderos"
+        "trabajador de invernaderos",
+        "otra",
+        "seleccionar todo"
     ]
 
 
