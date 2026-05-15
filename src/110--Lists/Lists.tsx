@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useWorkerSchedule } from '../Contexts/WorkerScheduleContext'
 import { formatDate } from '../Utils/formatDate'
 import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
@@ -68,6 +68,14 @@ const Lists = () => {
   const selectedDateInputValue = getDateInputValue(selectedDate)
   const displayedDateInputValue = dateInputValue ?? selectedDateInputValue
   const calendarDays = getCalendarDays(calendarMonth)
+
+
+  const { workersSchedule } = useWorkerSchedule();
+
+
+  useEffect(() => {
+    console.log(workersSchedule)
+  },[workersSchedule])
 
   const handleSetNextDay = () => {
     const nextDate = new Date(selectedDate)

@@ -1,18 +1,15 @@
 import { Outlet } from "react-router-dom"
 import vegibecLogo from "../assets/images/vegibec.png"
-import { usePersistentAuth } from "../Contexts/AuthContext";
-import { useEffect } from "react";
+
 
 
 function App() {
   
 
-  const { user } = usePersistentAuth();
 
 
-  useEffect(() => {
-    console.log(user)
-  },[user])
+
+
 
   return (
  <article className="flex flex-col items-center">

@@ -12,7 +12,7 @@ const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   useEffect(() => {
     if (loading) return;
      
-    console.log("user from ProtectedRoute:", user);
+    
 
     if (!user || !hasAccess) {
       alert("Vous n'avez pas les permissions nécessaires pour accéder à cette application.");
