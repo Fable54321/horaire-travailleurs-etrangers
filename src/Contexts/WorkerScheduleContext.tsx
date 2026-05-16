@@ -26,6 +26,12 @@ export type WorkerScheduleDetails = {
   [key: string]: unknown
 }
 
+type jobCategory = {
+  id: number
+  job_name: string
+  is_important: boolean
+}
+
 const getWorkersSchedule = () => fetchWithAuth<WorkerScheduleDetails[]>('/schedule')
 const getDateCode = (date: Date) => date.toString().slice(0, 3).toLowerCase();
 
@@ -36,6 +42,7 @@ type WorkerScheduleContextValue = {
   loadingWorkersSchedule: boolean
   workersScheduleError: string | null
   refetchWorkersSchedule: () => Promise<void>
+  jobCategories: jobCategory[]
   dateCode: string
 }
 
@@ -51,6 +58,7 @@ export const WorkerScheduleProvider = ({ children }: WorkerScheduleProviderProps
   const [workersSchedule, setWorkersSchedule] = useState<WorkerScheduleDetails[]>([])
   const [loadingWorkersSchedule, setLoadingWorkersSchedule] = useState(true)
   const [workersScheduleError, setWorkersScheduleError] = useState<string | null>(null)
+  const [jobCategories, setJobCategories] = useState<jobCategory[]>([])
 
   const refetchWorkersSchedule = useCallback(async () => {
     try {
@@ -107,6 +115,25 @@ export const WorkerScheduleProvider = ({ children }: WorkerScheduleProviderProps
     }
   }, [])
 
+
+
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const categories = await fetchWithAuth<jobCategory[]>('/schedule/job-list')
+        setJobCategories(categories)
+      } catch (error) {
+        console.error('Error fetching job categories:', error)
+        if (error instanceof Error) {
+        setJobCategories([])
+      }
+      }
+    }
+    void loadCategories()
+
+ 
+  }, [])
+
   return (
     <WorkerScheduleContext.Provider
       value={{
@@ -115,6 +142,7 @@ export const WorkerScheduleProvider = ({ children }: WorkerScheduleProviderProps
         workersSchedule,
         loadingWorkersSchedule,
         workersScheduleError,
+        jobCategories,
         refetchWorkersSchedule,
         dateCode,
       }}
