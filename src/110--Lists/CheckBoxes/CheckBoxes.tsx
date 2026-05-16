@@ -1,32 +1,57 @@
-import { useEffect } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { useWorkerSchedule } from "../../Contexts/WorkerScheduleContext"
 
+type CheckBoxesProps = {
+  selectedJobCategoryIds: number[]
+  setSelectedJobCategoryIds: Dispatch<SetStateAction<number[]>>
+}
 
-const CheckBoxes = () => {
-
-
+const CheckBoxes = ({ selectedJobCategoryIds, setSelectedJobCategoryIds }: CheckBoxesProps) => {
 const { jobCategories } = useWorkerSchedule();
 
-useEffect(() => {
-    console.log( 'jobCategories',jobCategories)
-}, [jobCategories])
- 
-const categories = Array.from(new Set(jobCategories.map(job => job.job_name)));
+const allCategoriesSelected = jobCategories.length > 0 && selectedJobCategoryIds.length === jobCategories.length
 
+const handleToggleCategory = (categoryId: number) => {
+  setSelectedJobCategoryIds((currentCategoryIds) =>
+    currentCategoryIds.includes(categoryId)
+      ? currentCategoryIds.filter((currentCategoryId) => currentCategoryId !== categoryId)
+      : [...currentCategoryIds, categoryId],
+  )
+}
+
+const handleToggleAllCategories = () => {
+  setSelectedJobCategoryIds(allCategoriesSelected ? [] : jobCategories.map((category) => category.id))
+}
 
   return (
     <section className="flex flex-col items-center bg-white mt-2 shadow-2xl rounded-xl px-2">
-        <h2 className="text-[1.7em] text-center my-2">categoría de trabajadores:</h2>
+        <h2 className="text-[1.7em] text-center my-2">Categorias mostradas:</h2>
         <ul className="grid grid-cols-2 items-start gap-2">
-            {categories.map((category, index) => (
-                <li key={index} className="flex h-17 text-[1.2em] items-center gap-2 border-b border-dashed border-secondary/50 pb-2 w-full">
-                    <input type="checkbox" id={category} name={category} value={category} />
-                    <label htmlFor={category}>{category}</label>
+            {jobCategories.map((category) => (
+                <li key={category.id} className="flex h-17 text-[1.2em] items-center gap-2 border-b border-dashed border-secondary/50 pb-2 w-full">
+                    <input
+                      type="checkbox"
+                      id={`job-category-${category.id}`}
+                      name={category.job_name}
+                      value={category.id}
+                      checked={selectedJobCategoryIds.includes(category.id)}
+                      onChange={() => handleToggleCategory(category.id)}
+                    />
+                    <label htmlFor={`job-category-${category.id}`}>{category.job_name}</label>
                 </li>
             ))}
+            <li className="flex h-17 text-[1.2em] items-center gap-2 border-b border-dashed border-secondary/50 pb-2 w-full">
+                <input
+                  type="checkbox"
+                  id="all"
+                  name="all"
+                  value="all"
+                  checked={allCategoriesSelected}
+                  onChange={handleToggleAllCategories}
+                />
+                <label htmlFor="all">todos</label>
+            </li>
         </ul>
-        
-
     </section>
   )
 }

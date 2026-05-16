@@ -68,6 +68,7 @@ const Lists = () => {
   const [dateInputValue, setDateInputValue] = useState<string | null>(null)
   const [isCalendarOpen, setIsCalendarOpen] = useState(false)
   const [calendarMonth, setCalendarMonth] = useState(() => selectedDate)
+  const [selectedJobCategoryIds, setSelectedJobCategoryIds] = useState<number[]>([])
   const selectedDateInputValue = getDateInputValue(selectedDate)
   const displayedDateInputValue = dateInputValue ?? selectedDateInputValue
   const calendarDays = getCalendarDays(calendarMonth)
@@ -259,9 +260,12 @@ const Lists = () => {
         )}
       </div>
 
-      <CheckBoxes />
+      <CheckBoxes
+        selectedJobCategoryIds={selectedJobCategoryIds}
+        setSelectedJobCategoryIds={setSelectedJobCategoryIds}
+      />
 
-      <ConductorsList />
+      <ConductorsList selectedJobCategoryIds={selectedJobCategoryIds} />
 
       <DayOffList />
     </article>

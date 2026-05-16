@@ -15,7 +15,9 @@ export type WorkerScheduleDetails = {
   has_license: boolean
   id: number
   is_driver: boolean
-  job: string | null
+  job_id_1: number
+  job_id_2: number | null
+  job_id_3: number | null
   job_spanish_label: string | null
   personal_picture_key: string | null
   user_id: number | null
